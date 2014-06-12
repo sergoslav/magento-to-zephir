@@ -3,6 +3,8 @@ magento-to-zephir
 
 Translate Magento to Zephir
 
+varien.so - сompiled php extension.
+
 ### Include in Magento:
 
 In class Varien_Object :
