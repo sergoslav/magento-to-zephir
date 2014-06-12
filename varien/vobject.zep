@@ -8,6 +8,13 @@ namespace Varien;
 class Vobject
 {
     /**
+     * Object attributes
+     *
+     * @var array
+     */
+    protected _data = [];
+
+    /**
      * Retrieves data from the object
      *
      * If key__v is empty will return all the data as an array
@@ -20,10 +27,10 @@ class Vobject
      * @param string|int index__v
      * @return mixed
      */
-    public function getData(string key__v = "", var index__v = null, var this_data__v)
+    public function getData(string key__v = "", var index__v = null)
     {
         if (key__v === "") {
-            return this_data__v;
+            return this->_data;
         }
 
         var default__v = null;
@@ -35,7 +42,7 @@ class Vobject
             var keyArr__v;
             let keyArr__v = explode("/", key__v);
             var data__v;
-            let data__v = this_data__v;
+            let data__v = this->_data;
             var k__v;
             for k__v in keyArr__v
             {
@@ -51,7 +58,7 @@ class Vobject
                     if (get_class(data__v) == "Varien_Object") {
 
 
-                        let data__v = data__v->getData(k__v, null, this_data__v);
+                        let data__v = data__v->getData(k__v, null, this->_data);
                     } else {
                         return default__v;
                     }
@@ -62,14 +69,14 @@ class Vobject
 
         // legacy functionality for index__v
 
-        if (isset(this_data__v[key__v]))
+        if (isset(this->_data[key__v]))
         {
             if (is_null(index__v)) {
-                return this_data__v[key__v];
+                return this->_data[key__v];
             }
 
             var value__v;
-            let value__v = this_data__v[key__v];
+            let value__v = this->_data[key__v];
             if (is_array(value__v)) {
                 /**
                  * If we have any data, even if it empty - we should use it, anyway
@@ -86,7 +93,7 @@ class Vobject
                                 ? arr__v[index__v] : null;
                 } else {
                     if (get_class(value__v) == "Varien_Object") {
-                        return value__v->getData(index__v, null, this_data__v);
+                        return value__v->getData(index__v, null, this->_data);
                     }
                 }
             }

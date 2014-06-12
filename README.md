@@ -3,16 +3,20 @@ magento-to-zephir
 
 Translate Magento to Zephir
 
-varien.so - сompiled php extension.
+## Class Varien_Object
 
-### Include in Magento:
+Path to file: /lib/Varien/Object.php
 
-In class Varien_Object :
-
+#### How use:
+1) Extend class
 ```````php
-public function getData($key='', $index=null)
+class Varien_Object extends Varien\Vobject implements ArrayAccess
 {
-        $varient = new Varien\Vobject();
-        return $varient->getData($key, $index, $this->_data);
+....
 }
 ```````
+
+2) Comment out functions (optionally):
+
+- getData
+
