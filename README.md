@@ -1,7 +1,7 @@
 magento-to-zephir
 =================
 
-Translate Magento to Zephir
+Translate Magento to [Zephir](https://github.com/phalcon/zephir)
 
 ## Class Varien_Object
 
