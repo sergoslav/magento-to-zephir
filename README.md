@@ -19,4 +19,5 @@ class Varien_Object extends Varien\Vobject implements ArrayAccess
 2) Comment out functions (optionally):
 
 - getData
+- _getData
 

@@ -101,4 +101,15 @@ class Vobject
         }
         return default__v;
     }
+
+    /**
+     * Get value from _data array without parse key
+     *
+     * @param   string $key
+     * @return  mixed
+     */
+    protected function _getData(string key)
+    {
+        return isset(this->_data[key]) ? this->_data[key] : null;
+    }
 }
